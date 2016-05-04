@@ -1,0 +1,9 @@
+D:\Ana-Maria\Documents\Documents\Visual Studio 2013\Projects\ImageEffects\ImageEffects\bin\Debug\ImageEffects.exe.config
+D:\Ana-Maria\Documents\Documents\Visual Studio 2013\Projects\ImageEffects\ImageEffects\bin\Debug\ImageEffects.exe
+D:\Ana-Maria\Documents\Documents\Visual Studio 2013\Projects\ImageEffects\ImageEffects\bin\Debug\ImageEffects.pdb
+D:\Ana-Maria\Documents\Documents\Visual Studio 2013\Projects\ImageEffects\ImageEffects\obj\Debug\ImageEffects.csprojResolveAssemblyReference.cache
+D:\Ana-Maria\Documents\Documents\Visual Studio 2013\Projects\ImageEffects\ImageEffects\obj\Debug\ImageEffects.Form1.resources
+D:\Ana-Maria\Documents\Documents\Visual Studio 2013\Projects\ImageEffects\ImageEffects\obj\Debug\ImageEffects.Properties.Resources.resources
+D:\Ana-Maria\Documents\Documents\Visual Studio 2013\Projects\ImageEffects\ImageEffects\obj\Debug\ImageEffects.csproj.GenerateResource.Cache
+D:\Ana-Maria\Documents\Documents\Visual Studio 2013\Projects\ImageEffects\ImageEffects\obj\Debug\ImageEffects.exe
+D:\Ana-Maria\Documents\Documents\Visual Studio 2013\Projects\ImageEffects\ImageEffects\obj\Debug\ImageEffects.pdb
