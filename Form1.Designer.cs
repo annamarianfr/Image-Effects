@@ -37,9 +37,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.glacialBtn = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.greenTintBtn = new System.Windows.Forms.PictureBox();
+            this.blueTintBtn = new System.Windows.Forms.PictureBox();
+            this.redTintBtn = new System.Windows.Forms.PictureBox();
             this.wavesBtn = new System.Windows.Forms.PictureBox();
             this.sepiaBtn = new System.Windows.Forms.PictureBox();
             this.grayscaleBtn = new System.Windows.Forms.PictureBox();
@@ -51,9 +51,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.source)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.result)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.glacialBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.greenTintBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blueTintBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.redTintBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wavesBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sepiaBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grayscaleBtn)).BeginInit();
@@ -90,9 +90,9 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox8);
-            this.panel1.Controls.Add(this.glacialBtn);
-            this.panel1.Controls.Add(this.pictureBox6);
+            this.panel1.Controls.Add(this.greenTintBtn);
+            this.panel1.Controls.Add(this.blueTintBtn);
+            this.panel1.Controls.Add(this.redTintBtn);
             this.panel1.Controls.Add(this.wavesBtn);
             this.panel1.Controls.Add(this.sepiaBtn);
             this.panel1.Controls.Add(this.grayscaleBtn);
@@ -106,27 +106,27 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(697, 119);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 11;
-            this.label6.Text = "label6";
+            this.label6.Text = "Green Tint";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(562, 119);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 13);
+            this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Glacial";
+            this.label5.Text = "Blue Tint";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(425, 119);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 9;
-            this.label4.Text = "label4";
+            this.label4.Text = "Red Tint";
             // 
             // label3
             // 
@@ -155,32 +155,38 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Alb-Negru";
             // 
-            // pictureBox8
+            // greenTintBtn
             // 
-            this.pictureBox8.Location = new System.Drawing.Point(700, 16);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(120, 100);
-            this.pictureBox8.TabIndex = 5;
-            this.pictureBox8.TabStop = false;
+            this.greenTintBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.greenTintBtn.Location = new System.Drawing.Point(700, 16);
+            this.greenTintBtn.Name = "greenTintBtn";
+            this.greenTintBtn.Size = new System.Drawing.Size(120, 100);
+            this.greenTintBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.greenTintBtn.TabIndex = 5;
+            this.greenTintBtn.TabStop = false;
+            this.greenTintBtn.Click += new System.EventHandler(this.greenTintBtn_Click);
             // 
-            // glacialBtn
+            // blueTintBtn
             // 
-            this.glacialBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.glacialBtn.Location = new System.Drawing.Point(565, 16);
-            this.glacialBtn.Name = "glacialBtn";
-            this.glacialBtn.Size = new System.Drawing.Size(120, 100);
-            this.glacialBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.glacialBtn.TabIndex = 4;
-            this.glacialBtn.TabStop = false;
-            this.glacialBtn.Click += new System.EventHandler(this.glacialBtn_Click);
+            this.blueTintBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.blueTintBtn.Location = new System.Drawing.Point(565, 16);
+            this.blueTintBtn.Name = "blueTintBtn";
+            this.blueTintBtn.Size = new System.Drawing.Size(120, 100);
+            this.blueTintBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.blueTintBtn.TabIndex = 4;
+            this.blueTintBtn.TabStop = false;
+            this.blueTintBtn.Click += new System.EventHandler(this.glacialBtn_Click);
             // 
-            // pictureBox6
+            // redTintBtn
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(428, 16);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(120, 100);
-            this.pictureBox6.TabIndex = 3;
-            this.pictureBox6.TabStop = false;
+            this.redTintBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.redTintBtn.Location = new System.Drawing.Point(428, 16);
+            this.redTintBtn.Name = "redTintBtn";
+            this.redTintBtn.Size = new System.Drawing.Size(120, 100);
+            this.redTintBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.redTintBtn.TabIndex = 3;
+            this.redTintBtn.TabStop = false;
+            this.redTintBtn.Click += new System.EventHandler(this.redTintBtn_Click);
             // 
             // wavesBtn
             // 
@@ -275,9 +281,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.result)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.glacialBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.greenTintBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blueTintBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.redTintBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wavesBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sepiaBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grayscaleBtn)).EndInit();
@@ -300,9 +306,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox glacialBtn;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox greenTintBtn;
+        private System.Windows.Forms.PictureBox blueTintBtn;
+        private System.Windows.Forms.PictureBox redTintBtn;
         private System.Windows.Forms.PictureBox wavesBtn;
         private System.Windows.Forms.PictureBox sepiaBtn;
         private System.Windows.Forms.PictureBox grayscaleBtn;

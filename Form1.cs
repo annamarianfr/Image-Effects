@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -107,34 +108,34 @@ namespace ImageEffects
             }
         }
 
-        private void GlacialEffect(PictureBox source, PictureBox destination, bool preview)
+        public void ColorTintEffect(PictureBox source, PictureBox destination, float blueTint,
+                                 float greenTint, float redTint, bool preview)
         {
-            if (source.Image != null)
+            Bitmap image = (Bitmap)source.Image.Clone();
+            Bitmap sourceBitmap = null;
+            if (preview == true)
+                sourceBitmap = new Bitmap(image, new Size(image.Width / 4, image.Height / 4));
+            else
+                sourceBitmap = image;
+            int height = sourceBitmap.Size.Height;
+            int width = sourceBitmap.Size.Width;
+            for (int yCoordinate = 0; yCoordinate < height; yCoordinate++)
             {
-                Bitmap image = (Bitmap)source.Image.Clone();
-                Bitmap glacial = null;
-                if (preview == true)
-                    glacial = new Bitmap(image, new Size(image.Width / 4, image.Height / 4));
-                else
-                    glacial = image;
-                Gradient glacialGr = new Gradient(glacial);
-                int height = glacial.Size.Height;
-                int width = glacial.Size.Width;
-                int red, green, blue;
-                for (int yCoordinate = 0; yCoordinate < height; yCoordinate++)
+                for (int xCoordinate = 0; xCoordinate < width; xCoordinate++)
                 {
-                    for (int xCoordinate = 0; xCoordinate < width; xCoordinate++)
-                    {
-                        Color color = glacial.GetPixel(xCoordinate, yCoordinate);
-                        red = glacialGr.gradientR[color.R];
-                        green = glacialGr.gradientG[color.G];
-                        blue = glacialGr.gradientB[color.B];
-                        color = Color.FromArgb((byte)red, (byte)green, (byte)blue);
-                        glacial.SetPixel(xCoordinate, yCoordinate, color);
-                    }
+                    Color color = sourceBitmap.GetPixel(xCoordinate, yCoordinate);
+                    double red = color.R + (255 - color.R) * redTint;
+                    double green = color.G + (255 - color.G) * greenTint;
+                    double blue = color.B + (255 - color.B) * blueTint;
+                    red = checkColor((int)red);
+                    green = checkColor((int)green);
+                    blue = checkColor((int)blue);
+                    Color sepiaColor = Color.FromArgb((byte)red, (byte)green, (byte)blue);
+                    sourceBitmap.SetPixel(xCoordinate, yCoordinate, sepiaColor);
                 }
-                destination.Image = glacial;
             }
+
+            destination.Image = sourceBitmap;
         }
 
         private int checkCoordinate(int coord, int limit)
@@ -146,12 +147,23 @@ namespace ImageEffects
             else
                 return coord;
         }
+        private int checkColor(int color)
+        {
+            if (color > 255)
+                color = 255;
+            else if (color < 0)
+                color = 0;
+            return color;
+        }
 
         private void loadBtns()
         {
             GrayscaleEffect(source, grayscaleBtn, true);
             SepiaEffect(source, sepiaBtn, true);
             WavesEffect(source, wavesBtn, true, 2);
+            ColorTintEffect(source, blueTintBtn, 10,0,0,true);
+            ColorTintEffect(source, redTintBtn, 0, 0, 10, true);
+            ColorTintEffect(source, greenTintBtn, 0, 10, 0, true);
         }
 
         private void saveImageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -211,7 +223,17 @@ namespace ImageEffects
 
         private void glacialBtn_Click(object sender, EventArgs e)
         {
-            GlacialEffect(source, result, false);
+            ColorTintEffect(source, result, 10, 0, 0,false);
+        }
+
+        private void redTintBtn_Click(object sender, EventArgs e)
+        {
+            ColorTintEffect(source, result, 0, 0, 10, false);
+        }
+
+        private void greenTintBtn_Click(object sender, EventArgs e)
+        {
+            ColorTintEffect(source, result, 0, 10, 0, false);
         }
     }
 }
