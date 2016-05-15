@@ -107,6 +107,36 @@ namespace ImageEffects
             }
         }
 
+        private void GlacialEffect(PictureBox source, PictureBox destination, bool preview)
+        {
+            if (source.Image != null)
+            {
+                Bitmap image = (Bitmap)source.Image.Clone();
+                Bitmap glacial = null;
+                if (preview == true)
+                    glacial = new Bitmap(image, new Size(image.Width / 4, image.Height / 4));
+                else
+                    glacial = image;
+                Gradient glacialGr = new Gradient(glacial);
+                int height = glacial.Size.Height;
+                int width = glacial.Size.Width;
+                int red, green, blue;
+                for (int yCoordinate = 0; yCoordinate < height; yCoordinate++)
+                {
+                    for (int xCoordinate = 0; xCoordinate < width; xCoordinate++)
+                    {
+                        Color color = glacial.GetPixel(xCoordinate, yCoordinate);
+                        red = glacialGr.gradientR[color.R];
+                        green = glacialGr.gradientG[color.G];
+                        blue = glacialGr.gradientB[color.B];
+                        color = Color.FromArgb((byte)red, (byte)green, (byte)blue);
+                        glacial.SetPixel(xCoordinate, yCoordinate, color);
+                    }
+                }
+                destination.Image = glacial;
+            }
+        }
+
         private int checkCoordinate(int coord, int limit)
         {
             if (coord >= limit)
@@ -166,7 +196,22 @@ namespace ImageEffects
 
         private void wavesBtn_Click(object sender, EventArgs e)
         {
-            WavesEffect(source, result, false, 10);
+            WavesEffect(source, result, false, 50);
+        }
+
+        private void sepiaBtn_Click(object sender, EventArgs e)
+        {
+            SepiaEffect(source, result, false);
+        }
+
+        private void grayscaleBtn_Click(object sender, EventArgs e)
+        {
+            GrayscaleEffect(source, result, false);
+        }
+
+        private void glacialBtn_Click(object sender, EventArgs e)
+        {
+            GlacialEffect(source, result, false);
         }
     }
 }

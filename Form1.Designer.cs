@@ -38,7 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.glacialBtn = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.wavesBtn = new System.Windows.Forms.PictureBox();
             this.sepiaBtn = new System.Windows.Forms.PictureBox();
@@ -52,7 +52,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.result)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.glacialBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wavesBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sepiaBtn)).BeginInit();
@@ -66,6 +66,7 @@
             this.source.Location = new System.Drawing.Point(29, 27);
             this.source.Name = "source";
             this.source.Size = new System.Drawing.Size(600, 500);
+            this.source.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.source.TabIndex = 0;
             this.source.TabStop = false;
             // 
@@ -75,6 +76,7 @@
             this.result.Location = new System.Drawing.Point(738, 27);
             this.result.Name = "result";
             this.result.Size = new System.Drawing.Size(600, 500);
+            this.result.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.result.TabIndex = 1;
             this.result.TabStop = false;
             // 
@@ -89,7 +91,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox8);
-            this.panel1.Controls.Add(this.pictureBox7);
+            this.panel1.Controls.Add(this.glacialBtn);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.wavesBtn);
             this.panel1.Controls.Add(this.sepiaBtn);
@@ -113,9 +115,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(562, 119);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(39, 13);
             this.label5.TabIndex = 10;
-            this.label5.Text = "label5";
+            this.label5.Text = "Glacial";
             // 
             // label4
             // 
@@ -161,13 +163,16 @@
             this.pictureBox8.TabIndex = 5;
             this.pictureBox8.TabStop = false;
             // 
-            // pictureBox7
+            // glacialBtn
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(565, 16);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(120, 100);
-            this.pictureBox7.TabIndex = 4;
-            this.pictureBox7.TabStop = false;
+            this.glacialBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.glacialBtn.Location = new System.Drawing.Point(565, 16);
+            this.glacialBtn.Name = "glacialBtn";
+            this.glacialBtn.Size = new System.Drawing.Size(120, 100);
+            this.glacialBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.glacialBtn.TabIndex = 4;
+            this.glacialBtn.TabStop = false;
+            this.glacialBtn.Click += new System.EventHandler(this.glacialBtn_Click);
             // 
             // pictureBox6
             // 
@@ -179,6 +184,7 @@
             // 
             // wavesBtn
             // 
+            this.wavesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.wavesBtn.Location = new System.Drawing.Point(289, 16);
             this.wavesBtn.Name = "wavesBtn";
             this.wavesBtn.Size = new System.Drawing.Size(120, 100);
@@ -189,21 +195,25 @@
             // 
             // sepiaBtn
             // 
+            this.sepiaBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sepiaBtn.Location = new System.Drawing.Point(151, 16);
             this.sepiaBtn.Name = "sepiaBtn";
             this.sepiaBtn.Size = new System.Drawing.Size(120, 100);
             this.sepiaBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.sepiaBtn.TabIndex = 1;
             this.sepiaBtn.TabStop = false;
+            this.sepiaBtn.Click += new System.EventHandler(this.sepiaBtn_Click);
             // 
             // grayscaleBtn
             // 
+            this.grayscaleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.grayscaleBtn.Location = new System.Drawing.Point(14, 16);
             this.grayscaleBtn.Name = "grayscaleBtn";
             this.grayscaleBtn.Size = new System.Drawing.Size(120, 100);
             this.grayscaleBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.grayscaleBtn.TabIndex = 0;
             this.grayscaleBtn.TabStop = false;
+            this.grayscaleBtn.Click += new System.EventHandler(this.grayscaleBtn_Click);
             // 
             // menuStrip1
             // 
@@ -266,7 +276,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.glacialBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wavesBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sepiaBtn)).EndInit();
@@ -291,7 +301,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox glacialBtn;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox wavesBtn;
         private System.Windows.Forms.PictureBox sepiaBtn;
