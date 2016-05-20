@@ -119,14 +119,59 @@ namespace ImageEffects
                 sourceBitmap = image;
             int height = sourceBitmap.Size.Height;
             int width = sourceBitmap.Size.Width;
+            double red, green, blue;
             for (int yCoordinate = 0; yCoordinate < height; yCoordinate++)
             {
                 for (int xCoordinate = 0; xCoordinate < width; xCoordinate++)
                 {
                     Color color = sourceBitmap.GetPixel(xCoordinate, yCoordinate);
-                    double red = color.R + (255 - color.R) * redTint;
-                    double green = color.G + (255 - color.G) * greenTint;
-                    double blue = color.B + (255 - color.B) * blueTint;
+                    red = color.R + (255 - color.R) * redTint;
+                    green = color.G + (255 - color.G) * greenTint;
+                    blue = color.B + (255 - color.B) * blueTint;
+                    red = checkColor((int)red);
+                    green = checkColor((int)green);
+                    blue = checkColor((int)blue);
+                    Color sepiaColor = Color.FromArgb((byte)red, (byte)green, (byte)blue);
+                    sourceBitmap.SetPixel(xCoordinate, yCoordinate, sepiaColor);
+                }
+            }
+
+            destination.Image = sourceBitmap;
+        }
+
+        public void MetalicEffect(PictureBox source, PictureBox destination, bool preview, int level)
+        {
+            int[] mtab = new int[260];
+            for (int j = 0; j < 255;)
+            {
+                for (int k = 0; k < 256; k += level)
+                {
+                    mtab[j++] = k;
+                }
+                for (int k = 255; k > 0; k -= level)
+                {
+                    mtab[j++] = k;
+                }
+            }
+            mtab[255] = level%2==0?0:255;
+
+            Bitmap image = (Bitmap)source.Image.Clone();
+            Bitmap sourceBitmap = null;
+            if (preview == true)
+                sourceBitmap = new Bitmap(image, new Size(image.Width / 4, image.Height / 4));
+            else
+                sourceBitmap = image;
+            int height = sourceBitmap.Size.Height;
+            int width = sourceBitmap.Size.Width;
+            int red, green, blue;
+            for (int yCoordinate = 0; yCoordinate < height; yCoordinate++)
+            {
+                for (int xCoordinate = 0; xCoordinate < width; xCoordinate++)
+                {
+                    Color color = sourceBitmap.GetPixel(xCoordinate, yCoordinate);
+                    red = mtab[color.R];
+                    green = mtab[color.G];
+                    blue = mtab[color.B];
                     red = checkColor((int)red);
                     green = checkColor((int)green);
                     blue = checkColor((int)blue);
@@ -164,6 +209,7 @@ namespace ImageEffects
             ColorTintEffect(source, blueTintBtn, 10,0,0,true);
             ColorTintEffect(source, redTintBtn, 0, 0, 10, true);
             ColorTintEffect(source, greenTintBtn, 0, 10, 0, true);
+            MetalicEffect(source, metalicBtn, true, 10);
         }
 
         private void saveImageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -234,6 +280,11 @@ namespace ImageEffects
         private void greenTintBtn_Click(object sender, EventArgs e)
         {
             ColorTintEffect(source, result, 0, 10, 0, false);
+        }
+
+        private void metalicBtn_Click(object sender, EventArgs e)
+        {
+            MetalicEffect(source, result, false, 10);
         }
     }
 }
