@@ -50,6 +50,8 @@
             this.saveImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label8 = new System.Windows.Forms.Label();
+            this.glassBtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.source)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.result)).BeginInit();
             this.panel1.SuspendLayout();
@@ -61,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sepiaBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grayscaleBtn)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.glassBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // source
@@ -87,6 +90,8 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.glassBtn);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.metalicBtn);
             this.panel1.Controls.Add(this.label6);
@@ -178,7 +183,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Alb-Negru";
+            this.label1.Text = "Grayscale";
             // 
             // greenTintBtn
             // 
@@ -278,12 +283,33 @@
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
             this.resetToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.resetToolStripMenuItem.Text = "Reset";
+            this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.aboutToolStripMenuItem.Text = "Author";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(968, 119);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Glass";
+            // 
+            // glassBtn
+            // 
+            this.glassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.glassBtn.Location = new System.Drawing.Point(971, 16);
+            this.glassBtn.Name = "glassBtn";
+            this.glassBtn.Size = new System.Drawing.Size(120, 100);
+            this.glassBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.glassBtn.TabIndex = 14;
+            this.glassBtn.TabStop = false;
+            this.glassBtn.Click += new System.EventHandler(this.glassBtn_Click);
             // 
             // Form1
             // 
@@ -315,6 +341,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grayscaleBtn)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.glassBtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,6 +371,8 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox metalicBtn;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox glassBtn;
     }
 }
 

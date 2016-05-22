@@ -183,6 +183,45 @@ namespace ImageEffects
             destination.Image = sourceBitmap;
         }
 
+        public void GlassEffect(PictureBox source, PictureBox destination, bool preview, int style, int frequency, int amplitude)
+        {
+            Bitmap image = (Bitmap)source.Image.Clone();
+            Bitmap sourceBitmap = null;
+            if (preview == true)
+                sourceBitmap = new Bitmap(image, new Size(image.Width / 4, image.Height / 4));
+            else
+                sourceBitmap = image;
+            int height = sourceBitmap.Size.Height;
+            int width = sourceBitmap.Size.Width;
+            int red, green, blue;
+            double nx, ny;
+            for (int yCoordinate = 0; yCoordinate < height; yCoordinate++)
+            {
+                for (int xCoordinate = 0; xCoordinate < width; xCoordinate++)
+                {
+                    Color color = sourceBitmap.GetPixel(xCoordinate, yCoordinate);
+                    if (style % 2 == 0)
+                    {
+                        nx = width / 2 - xCoordinate;
+                        ny = height / 2 - yCoordinate;
+                        nx = xCoordinate + amplitude * Math.Sin(frequency * nx * Math.PI / 180);
+                        ny = yCoordinate + amplitude * Math.Cos(frequency * nx * Math.PI / 180);
+                    }
+                    else
+                    {
+                        nx = xCoordinate + amplitude * Math.Sin(frequency * xCoordinate * Math.PI / 180);
+                        ny = yCoordinate + amplitude * Math.Cos(frequency * yCoordinate * Math.PI / 180);
+                    }
+                    nx = checkCoordinate((int)nx, width);
+                    ny = checkCoordinate((int)ny, height);
+                    color = sourceBitmap.GetPixel((int)nx, (int)ny);
+                    sourceBitmap.SetPixel(xCoordinate, yCoordinate, color);
+                }
+            }
+
+            destination.Image = sourceBitmap;
+        }
+
         private int checkCoordinate(int coord, int limit)
         {
             if (coord >= limit)
@@ -210,6 +249,7 @@ namespace ImageEffects
             ColorTintEffect(source, redTintBtn, 0, 0, 10, true);
             ColorTintEffect(source, greenTintBtn, 0, 10, 0, true);
             MetalicEffect(source, metalicBtn, true, 10);
+            GlassEffect(source, glassBtn, true, 1, 20, 5);
         }
 
         private void saveImageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -285,6 +325,16 @@ namespace ImageEffects
         private void metalicBtn_Click(object sender, EventArgs e)
         {
             MetalicEffect(source, result, false, 10);
+        }
+
+        private void glassBtn_Click(object sender, EventArgs e)
+        {
+            GlassEffect(source, result, false, 1, 20, 5);
+        }
+
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            result.Image = source.Image;
         }
     }
 }
