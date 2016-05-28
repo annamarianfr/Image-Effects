@@ -14,6 +14,7 @@ namespace ImageEffects
 {
     public partial class Form1 : Form
     {
+        int shrinkFactor = 6;
         public Form1()
         {
             InitializeComponent();
@@ -29,23 +30,23 @@ namespace ImageEffects
             if (source.Image != null)
             {
                 Bitmap image = (Bitmap)source.Image.Clone();
-                Bitmap grayScale = null;
+                Bitmap sourceBitmap = null;
                 if (preview == true)
-                    grayScale = new Bitmap(image, new Size(image.Width / 4, image.Height / 4));
+                    sourceBitmap = new Bitmap(image, new Size(image.Width / shrinkFactor, image.Height / shrinkFactor));
                 else
-                    grayScale = image;
-                int height = grayScale.Size.Height;
-                int width = grayScale.Size.Width;
+                    sourceBitmap = image;
+                int height = sourceBitmap.Size.Height;
+                int width = sourceBitmap.Size.Width;
                 for (int yCoordinate = 0; yCoordinate < height; yCoordinate++)
                 {
                     for (int xCoordinate = 0; xCoordinate < width; xCoordinate++)
                     {
-                        Color color = grayScale.GetPixel(xCoordinate, yCoordinate);
+                        Color color = sourceBitmap.GetPixel(xCoordinate, yCoordinate);
                         int grayColor = (color.R + color.G + color.B) / 3;
-                        grayScale.SetPixel(xCoordinate, yCoordinate, Color.FromArgb(grayColor, grayColor, grayColor));
+                        sourceBitmap.SetPixel(xCoordinate, yCoordinate, Color.FromArgb(grayColor, grayColor, grayColor));
                     }
                 }
-                destination.Image = grayScale;
+                destination.Image = sourceBitmap;
             }
         }
 
@@ -54,24 +55,24 @@ namespace ImageEffects
             if (source.Image != null)
             {
                 Bitmap image = (Bitmap)source.Image.Clone();
-                Bitmap sepia = null;
+                Bitmap sourceBitmap = null;
                 if(preview == true)
-                    sepia = new Bitmap(image, new Size(image.Width/4,image.Height/4));
+                    sourceBitmap = new Bitmap(image, new Size(image.Width/shrinkFactor,image.Height/shrinkFactor));
                 else 
-                    sepia = image;
-                int height = sepia.Size.Height;
-                int width = sepia.Size.Width;
+                    sourceBitmap = image;
+                int height = sourceBitmap.Size.Height;
+                int width = sourceBitmap.Size.Width;
                 for (int yCoordinate = 0; yCoordinate < height; yCoordinate++)
                 {
                     for (int xCoordinate = 0; xCoordinate < width; xCoordinate++)
                     {
-                        Color color = sepia.GetPixel(xCoordinate, yCoordinate);
+                        Color color = sourceBitmap.GetPixel(xCoordinate, yCoordinate);
                         double grayColor = ((double)(color.R + color.G + color.B)) / 3.0d;
                         Color sepiaColor = Color.FromArgb((byte)grayColor, (byte)(grayColor * 0.95), (byte)(grayColor * 0.82));
-                        sepia.SetPixel(xCoordinate, yCoordinate, sepiaColor);
+                        sourceBitmap.SetPixel(xCoordinate, yCoordinate, sepiaColor);
                     }
                 }
-                destination.Image = sepia;
+                destination.Image = sourceBitmap;
             }
         }
 
@@ -80,16 +81,16 @@ namespace ImageEffects
             if (source.Image != null)
             {
                 Bitmap image = (Bitmap)source.Image.Clone();
-                Bitmap waves = null;
+                Bitmap sourceBitmap = null;
                 if (preview == true)
                 {
-                    waves = new Bitmap(image, new Size(image.Width / 4, image.Height / 4));
-                    image = waves;
+                    sourceBitmap = new Bitmap(image, new Size(image.Width / shrinkFactor, image.Height / shrinkFactor));
+                    image = sourceBitmap;
                 }
                 else
-                    waves = image;
-                int height = waves.Size.Height;
-                int width = waves.Size.Width;
+                    sourceBitmap = image;
+                int height = sourceBitmap.Size.Height;
+                int width = sourceBitmap.Size.Width;
                 for (int yCoordinate = 0; yCoordinate < height; yCoordinate++)
                 {
                     for (int xCoordinate = 0; xCoordinate < width; xCoordinate++)
@@ -101,10 +102,10 @@ namespace ImageEffects
                         xo = checkCoordinate(xo, width);
                         yo = checkCoordinate(yo, height);
                         Color color = image.GetPixel(xo, yo);
-                        waves.SetPixel(xCoordinate, yCoordinate, color);
+                        sourceBitmap.SetPixel(xCoordinate, yCoordinate, color);
                     }
                 }
-                destination.Image = waves;
+                destination.Image = sourceBitmap;
             }
         }
 
@@ -114,7 +115,7 @@ namespace ImageEffects
             Bitmap image = (Bitmap)source.Image.Clone();
             Bitmap sourceBitmap = null;
             if (preview == true)
-                sourceBitmap = new Bitmap(image, new Size(image.Width / 4, image.Height / 4));
+                sourceBitmap = new Bitmap(image, new Size(image.Width / shrinkFactor, image.Height / shrinkFactor));
             else
                 sourceBitmap = image;
             int height = sourceBitmap.Size.Height;
@@ -158,7 +159,7 @@ namespace ImageEffects
             Bitmap image = (Bitmap)source.Image.Clone();
             Bitmap sourceBitmap = null;
             if (preview == true)
-                sourceBitmap = new Bitmap(image, new Size(image.Width / 4, image.Height / 4));
+                sourceBitmap = new Bitmap(image, new Size(image.Width / shrinkFactor, image.Height / shrinkFactor));
             else
                 sourceBitmap = image;
             int height = sourceBitmap.Size.Height;
@@ -188,12 +189,11 @@ namespace ImageEffects
             Bitmap image = (Bitmap)source.Image.Clone();
             Bitmap sourceBitmap = null;
             if (preview == true)
-                sourceBitmap = new Bitmap(image, new Size(image.Width / 4, image.Height / 4));
+                sourceBitmap = new Bitmap(image, new Size(image.Width / shrinkFactor, image.Height / shrinkFactor));
             else
                 sourceBitmap = image;
             int height = sourceBitmap.Size.Height;
             int width = sourceBitmap.Size.Width;
-            int red, green, blue;
             double nx, ny;
             for (int yCoordinate = 0; yCoordinate < height; yCoordinate++)
             {
@@ -219,6 +219,38 @@ namespace ImageEffects
                 }
             }
 
+            destination.Image = sourceBitmap;
+        }
+
+        public void RockEffect(PictureBox source, PictureBox destination, bool preview, int intensity)
+        {
+            Bitmap image = (Bitmap)source.Image.Clone();
+            Bitmap sourceBitmap = null;
+            if (preview == true)
+                sourceBitmap = new Bitmap(image, new Size(image.Width / shrinkFactor, image.Height / shrinkFactor));
+            else
+                sourceBitmap = image;
+            int height = sourceBitmap.Size.Height;
+            int width = sourceBitmap.Size.Width;
+            int red, green, blue;
+            for (int yCoordinate = 0; yCoordinate < height; yCoordinate++)
+            {
+                for (int xCoordinate = 0; xCoordinate < width; xCoordinate++)
+                {
+                    Color color = sourceBitmap.GetPixel(xCoordinate, yCoordinate);
+                    int nextX = checkCoordinate(xCoordinate + 1, width);
+                    int nextY = checkCoordinate(yCoordinate + 1, height);
+                    Color nextColor = sourceBitmap.GetPixel(nextX, nextY);
+                    red = color.R + intensity * (color.R - nextColor.R);
+                    green = color.G + intensity * (color.G - nextColor.G);
+                    blue = color.B + intensity * (color.B - nextColor.G);
+                    red = checkColor(red);
+                    green = checkColor(green);
+                    blue = checkColor(blue);
+                    color = Color.FromArgb(red, green, blue);
+                    sourceBitmap.SetPixel(xCoordinate, yCoordinate, color);
+                }
+            }
             destination.Image = sourceBitmap;
         }
 
@@ -250,6 +282,7 @@ namespace ImageEffects
             ColorTintEffect(source, greenTintBtn, 0, 10, 0, true);
             MetalicEffect(source, metalicBtn, true, 10);
             GlassEffect(source, glassBtn, true, 1, 20, 5);
+            RockEffect(source, rockBtn, true, 10);
         }
 
         private void saveImageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -335,6 +368,11 @@ namespace ImageEffects
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             result.Image = source.Image;
+        }
+
+        private void rockBtn_Click(object sender, EventArgs e)
+        {
+            RockEffect(source, result, false, 10);
         }
     }
 }

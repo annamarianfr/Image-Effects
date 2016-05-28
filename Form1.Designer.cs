@@ -31,6 +31,8 @@
             this.source = new System.Windows.Forms.PictureBox();
             this.result = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.glassBtn = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.metalicBtn = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,11 +52,14 @@
             this.saveImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label8 = new System.Windows.Forms.Label();
-            this.glassBtn = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.rockBtn = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.verticalBtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.source)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.result)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.glassBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metalicBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.greenTintBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blueTintBtn)).BeginInit();
@@ -63,7 +68,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.sepiaBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grayscaleBtn)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.glassBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rockBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verticalBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // source
@@ -90,6 +96,10 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.verticalBtn);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.rockBtn);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.glassBtn);
             this.panel1.Controls.Add(this.label7);
@@ -108,8 +118,28 @@
             this.panel1.Controls.Add(this.grayscaleBtn);
             this.panel1.Location = new System.Drawing.Point(29, 561);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1309, 149);
+            this.panel1.Size = new System.Drawing.Size(1309, 157);
             this.panel1.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(968, 119);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Glass";
+            // 
+            // glassBtn
+            // 
+            this.glassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.glassBtn.Location = new System.Drawing.Point(971, 16);
+            this.glassBtn.Name = "glassBtn";
+            this.glassBtn.Size = new System.Drawing.Size(120, 100);
+            this.glassBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.glassBtn.TabIndex = 14;
+            this.glassBtn.TabStop = false;
+            this.glassBtn.Click += new System.EventHandler(this.glassBtn_Click);
             // 
             // label7
             // 
@@ -291,25 +321,44 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.aboutToolStripMenuItem.Text = "Author";
             // 
-            // label8
+            // label9
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(968, 119);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(33, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Glass";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1104, 119);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(33, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Rock";
             // 
-            // glassBtn
+            // rockBtn
             // 
-            this.glassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.glassBtn.Location = new System.Drawing.Point(971, 16);
-            this.glassBtn.Name = "glassBtn";
-            this.glassBtn.Size = new System.Drawing.Size(120, 100);
-            this.glassBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.glassBtn.TabIndex = 14;
-            this.glassBtn.TabStop = false;
-            this.glassBtn.Click += new System.EventHandler(this.glassBtn_Click);
+            this.rockBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rockBtn.Location = new System.Drawing.Point(1107, 16);
+            this.rockBtn.Name = "rockBtn";
+            this.rockBtn.Size = new System.Drawing.Size(120, 100);
+            this.rockBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.rockBtn.TabIndex = 16;
+            this.rockBtn.TabStop = false;
+            this.rockBtn.Click += new System.EventHandler(this.rockBtn_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(1241, 119);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 13);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Vertical Erosion";
+            // 
+            // verticalBtn
+            // 
+            this.verticalBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.verticalBtn.Location = new System.Drawing.Point(1244, 16);
+            this.verticalBtn.Name = "verticalBtn";
+            this.verticalBtn.Size = new System.Drawing.Size(120, 100);
+            this.verticalBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.verticalBtn.TabIndex = 18;
+            this.verticalBtn.TabStop = false;
             // 
             // Form1
             // 
@@ -332,6 +381,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.result)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.glassBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metalicBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.greenTintBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blueTintBtn)).EndInit();
@@ -341,7 +391,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grayscaleBtn)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.glassBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rockBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verticalBtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,6 +424,10 @@
         private System.Windows.Forms.PictureBox metalicBtn;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox glassBtn;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox rockBtn;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox verticalBtn;
     }
 }
 
