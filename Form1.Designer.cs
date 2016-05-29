@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.source = new System.Windows.Forms.PictureBox();
-            this.result = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.glassBtn = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.metalicBtn = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.invertBtn = new System.Windows.Forms.PictureBox();
+            this.rockBtn = new System.Windows.Forms.PictureBox();
+            this.glassBtn = new System.Windows.Forms.PictureBox();
+            this.metalicBtn = new System.Windows.Forms.PictureBox();
             this.greenTintBtn = new System.Windows.Forms.PictureBox();
             this.blueTintBtn = new System.Windows.Forms.PictureBox();
             this.redTintBtn = new System.Windows.Forms.PictureBox();
             this.wavesBtn = new System.Windows.Forms.PictureBox();
             this.sepiaBtn = new System.Windows.Forms.PictureBox();
             this.grayscaleBtn = new System.Windows.Forms.PictureBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.result = new System.Windows.Forms.PictureBox();
+            this.source = new System.Windows.Forms.PictureBox();
             this.loadImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label9 = new System.Windows.Forms.Label();
-            this.rockBtn = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.verticalBtn = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.source)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.result)).BeginInit();
             this.panel1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.invertBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rockBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.glassBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metalicBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.greenTintBtn)).BeginInit();
@@ -67,37 +67,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.wavesBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sepiaBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grayscaleBtn)).BeginInit();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rockBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verticalBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.result)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.source)).BeginInit();
             this.SuspendLayout();
-            // 
-            // source
-            // 
-            this.source.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.source.Location = new System.Drawing.Point(29, 27);
-            this.source.Name = "source";
-            this.source.Size = new System.Drawing.Size(600, 500);
-            this.source.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.source.TabIndex = 0;
-            this.source.TabStop = false;
-            // 
-            // result
-            // 
-            this.result.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.result.Location = new System.Drawing.Point(738, 27);
-            this.result.Name = "result";
-            this.result.Size = new System.Drawing.Size(600, 500);
-            this.result.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.result.TabIndex = 1;
-            this.result.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.verticalBtn);
+            this.panel1.Controls.Add(this.invertBtn);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.rockBtn);
             this.panel1.Controls.Add(this.label8);
@@ -121,6 +100,24 @@
             this.panel1.Size = new System.Drawing.Size(1309, 157);
             this.panel1.TabIndex = 2;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(1241, 119);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(34, 13);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Invert";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1104, 119);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(33, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Rock";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -130,17 +127,6 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "Glass";
             // 
-            // glassBtn
-            // 
-            this.glassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.glassBtn.Location = new System.Drawing.Point(971, 16);
-            this.glassBtn.Name = "glassBtn";
-            this.glassBtn.Size = new System.Drawing.Size(120, 100);
-            this.glassBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.glassBtn.TabIndex = 14;
-            this.glassBtn.TabStop = false;
-            this.glassBtn.Click += new System.EventHandler(this.glassBtn_Click);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -149,17 +135,6 @@
             this.label7.Size = new System.Drawing.Size(41, 13);
             this.label7.TabIndex = 13;
             this.label7.Text = "Metalic";
-            // 
-            // metalicBtn
-            // 
-            this.metalicBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metalicBtn.Location = new System.Drawing.Point(835, 16);
-            this.metalicBtn.Name = "metalicBtn";
-            this.metalicBtn.Size = new System.Drawing.Size(120, 100);
-            this.metalicBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.metalicBtn.TabIndex = 12;
-            this.metalicBtn.TabStop = false;
-            this.metalicBtn.Click += new System.EventHandler(this.metalicBtn_Click);
             // 
             // label6
             // 
@@ -214,6 +189,62 @@
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Grayscale";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadImageToolStripMenuItem,
+            this.saveImageToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1350, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // invertBtn
+            // 
+            this.invertBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.invertBtn.Location = new System.Drawing.Point(1244, 16);
+            this.invertBtn.Name = "invertBtn";
+            this.invertBtn.Size = new System.Drawing.Size(120, 100);
+            this.invertBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.invertBtn.TabIndex = 18;
+            this.invertBtn.TabStop = false;
+            this.invertBtn.Click += new System.EventHandler(this.invertBtn_Click);
+            // 
+            // rockBtn
+            // 
+            this.rockBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rockBtn.Location = new System.Drawing.Point(1107, 16);
+            this.rockBtn.Name = "rockBtn";
+            this.rockBtn.Size = new System.Drawing.Size(120, 100);
+            this.rockBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.rockBtn.TabIndex = 16;
+            this.rockBtn.TabStop = false;
+            this.rockBtn.Click += new System.EventHandler(this.rockBtn_Click);
+            // 
+            // glassBtn
+            // 
+            this.glassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.glassBtn.Location = new System.Drawing.Point(971, 16);
+            this.glassBtn.Name = "glassBtn";
+            this.glassBtn.Size = new System.Drawing.Size(120, 100);
+            this.glassBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.glassBtn.TabIndex = 14;
+            this.glassBtn.TabStop = false;
+            this.glassBtn.Click += new System.EventHandler(this.glassBtn_Click);
+            // 
+            // metalicBtn
+            // 
+            this.metalicBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metalicBtn.Location = new System.Drawing.Point(835, 16);
+            this.metalicBtn.Name = "metalicBtn";
+            this.metalicBtn.Size = new System.Drawing.Size(120, 100);
+            this.metalicBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.metalicBtn.TabIndex = 12;
+            this.metalicBtn.TabStop = false;
+            this.metalicBtn.Click += new System.EventHandler(this.metalicBtn_Click);
             // 
             // greenTintBtn
             // 
@@ -281,84 +312,49 @@
             this.grayscaleBtn.TabStop = false;
             this.grayscaleBtn.Click += new System.EventHandler(this.grayscaleBtn_Click);
             // 
-            // menuStrip1
+            // result
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadImageToolStripMenuItem,
-            this.saveImageToolStripMenuItem,
-            this.resetToolStripMenuItem,
-            this.aboutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1350, 24);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
+            this.result.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.result.Location = new System.Drawing.Point(738, 27);
+            this.result.Name = "result";
+            this.result.Size = new System.Drawing.Size(600, 500);
+            this.result.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.result.TabIndex = 1;
+            this.result.TabStop = false;
+            // 
+            // source
+            // 
+            this.source.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.source.Location = new System.Drawing.Point(29, 27);
+            this.source.Name = "source";
+            this.source.Size = new System.Drawing.Size(600, 500);
+            this.source.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.source.TabIndex = 0;
+            this.source.TabStop = false;
             // 
             // loadImageToolStripMenuItem
             // 
+            this.loadImageToolStripMenuItem.Image = global::ImageEffects.Properties.Resources.load;
             this.loadImageToolStripMenuItem.Name = "loadImageToolStripMenuItem";
-            this.loadImageToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.loadImageToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
             this.loadImageToolStripMenuItem.Text = "Load Image";
             this.loadImageToolStripMenuItem.Click += new System.EventHandler(this.loadImageToolStripMenuItem_Click);
             // 
             // saveImageToolStripMenuItem
             // 
+            this.saveImageToolStripMenuItem.Image = global::ImageEffects.Properties.Resources.save;
             this.saveImageToolStripMenuItem.Name = "saveImageToolStripMenuItem";
-            this.saveImageToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.saveImageToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.saveImageToolStripMenuItem.Text = "Save Image";
             this.saveImageToolStripMenuItem.Click += new System.EventHandler(this.saveImageToolStripMenuItem_Click);
             // 
-            // resetToolStripMenuItem
-            // 
-            this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.resetToolStripMenuItem.Text = "Reset";
-            this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
-            // 
             // aboutToolStripMenuItem
             // 
+            this.aboutToolStripMenuItem.Image = global::ImageEffects.Properties.Resources.author;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.aboutToolStripMenuItem.Text = "Author";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1104, 119);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(33, 13);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Rock";
-            // 
-            // rockBtn
-            // 
-            this.rockBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rockBtn.Location = new System.Drawing.Point(1107, 16);
-            this.rockBtn.Name = "rockBtn";
-            this.rockBtn.Size = new System.Drawing.Size(120, 100);
-            this.rockBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.rockBtn.TabIndex = 16;
-            this.rockBtn.TabStop = false;
-            this.rockBtn.Click += new System.EventHandler(this.rockBtn_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1241, 119);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 13);
-            this.label10.TabIndex = 19;
-            this.label10.Text = "Vertical Erosion";
-            // 
-            // verticalBtn
-            // 
-            this.verticalBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.verticalBtn.Location = new System.Drawing.Point(1244, 16);
-            this.verticalBtn.Name = "verticalBtn";
-            this.verticalBtn.Size = new System.Drawing.Size(120, 100);
-            this.verticalBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.verticalBtn.TabIndex = 18;
-            this.verticalBtn.TabStop = false;
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -377,10 +373,12 @@
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.source)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.result)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.invertBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rockBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.glassBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metalicBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.greenTintBtn)).EndInit();
@@ -389,10 +387,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.wavesBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sepiaBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grayscaleBtn)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rockBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verticalBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.result)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.source)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,7 +414,6 @@
         private System.Windows.Forms.PictureBox grayscaleBtn;
         private System.Windows.Forms.ToolStripMenuItem loadImageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveImageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox metalicBtn;
@@ -427,7 +422,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox rockBtn;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.PictureBox verticalBtn;
+        private System.Windows.Forms.PictureBox invertBtn;
     }
 }
 

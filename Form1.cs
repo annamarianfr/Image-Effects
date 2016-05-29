@@ -254,6 +254,29 @@ namespace ImageEffects
             destination.Image = sourceBitmap;
         }
 
+        public void InvertEffect(PictureBox source, PictureBox destination, bool preview)
+        {
+            Bitmap image = (Bitmap)source.Image.Clone();
+            Bitmap sourceBitmap = null;
+            if (preview == true)
+                sourceBitmap = new Bitmap(image, new Size(image.Width / shrinkFactor, image.Height / shrinkFactor));
+            else
+                sourceBitmap = image;
+            int height = sourceBitmap.Size.Height;
+            int width = sourceBitmap.Size.Width;
+            
+            Color color;
+            for (int yCoordinate = 0; yCoordinate < height; yCoordinate++)
+            {
+                for (int xCoordinate = 0; xCoordinate < width; xCoordinate++)
+                {
+                    color = sourceBitmap.GetPixel(xCoordinate, yCoordinate);
+                    sourceBitmap.SetPixel(xCoordinate, yCoordinate, Color.FromArgb(255 - color.R, 255 - color.G, 255 - color.B));
+                }
+            }
+            destination.Image = sourceBitmap;
+        }
+
         private int checkCoordinate(int coord, int limit)
         {
             if (coord >= limit)
@@ -283,6 +306,7 @@ namespace ImageEffects
             MetalicEffect(source, metalicBtn, true, 10);
             GlassEffect(source, glassBtn, true, 1, 20, 5);
             RockEffect(source, rockBtn, true, 10);
+            InvertEffect(source, invertBtn, true);
         }
 
         private void saveImageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -365,14 +389,19 @@ namespace ImageEffects
             GlassEffect(source, result, false, 1, 20, 5);
         }
 
-        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            result.Image = source.Image;
-        }
-
         private void rockBtn_Click(object sender, EventArgs e)
         {
             RockEffect(source, result, false, 10);
+        }
+
+        private void invertBtn_Click(object sender, EventArgs e)
+        {
+            InvertEffect(source, result, false);
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ana-Maria Nichifor\nCalculatoare\nAn 3\nGrupa 3132A", "Author");
         }
     }
 }
