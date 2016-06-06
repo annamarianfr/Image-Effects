@@ -110,7 +110,7 @@ namespace ImageEffects
         }
 
         public void ColorTintEffect(PictureBox source, PictureBox destination, bool blueTint,
-                                 bool greenTint, bool redTint, bool preview)
+                                 bool greenTint, bool redTint, bool preview, int level)
         {
             Bitmap image = (Bitmap)source.Image.Clone();
             Bitmap sourceBitmap = null;
@@ -126,26 +126,23 @@ namespace ImageEffects
                 for (int xCoordinate = 0; xCoordinate < width; xCoordinate++)
                 {
                     Color color = sourceBitmap.GetPixel(xCoordinate, yCoordinate);
-                    //red = color.R + (255 - color.R) * redTint;
-                    //green = color.G + (255 - color.G) * greenTint;
-                    //blue = color.B + (255 - color.B) * blueTint;
                     if (blueTint)
                     {
                         blue = color.B;
-                        green = color.G - 255;
-                        red = color.R - 255;
+                        green = color.G - level;
+                        red = color.R -level;
                     }
                     else if (redTint)
                     {
                         red = color.R;
-                        green = color.G - 255;
-                        blue = color.B - 255;
+                        green = color.G -level;
+                        blue = color.B - level;
                     }
                     else if (greenTint)
                     {
                         green = color.G;
-                        red = color.R - 255;
-                        blue = color.B - 255;
+                        red = color.R -level;
+                        blue = color.B - level;
                     }
                     else
                     {
@@ -324,9 +321,9 @@ namespace ImageEffects
             GrayscaleEffect(source, grayscaleBtn, true);
             SepiaEffect(source, sepiaBtn, true);
             WavesEffect(source, wavesBtn, true, 2);
-            ColorTintEffect(source, blueTintBtn, true,false,false,true);
-            ColorTintEffect(source, redTintBtn, false, false, true, true);
-            ColorTintEffect(source, greenTintBtn, false, true, false, true);
+            ColorTintEffect(source, blueTintBtn, true,false,false,true, 150);
+            ColorTintEffect(source, redTintBtn, false, false, true, true, 150);
+            ColorTintEffect(source, greenTintBtn, false, true, false, true, 150);
             MetalicEffect(source, metalicBtn, true, 10);
             GlassEffect(source, glassBtn, true, 1, 20, 5);
             RockEffect(source, rockBtn, true, 10);
@@ -390,17 +387,17 @@ namespace ImageEffects
 
         private void glacialBtn_Click(object sender, EventArgs e)
         {
-            ColorTintEffect(source, result, true,false, false,false);
+            ColorTintEffect(source, result, true,false, false,false, 150);
         }
 
         private void redTintBtn_Click(object sender, EventArgs e)
         {
-            ColorTintEffect(source, result, false, false, true, false);
+            ColorTintEffect(source, result, false, false, true, false, 150);
         }
 
         private void greenTintBtn_Click(object sender, EventArgs e)
         {
-            ColorTintEffect(source, result, false, true, false, false);
+            ColorTintEffect(source, result, false, true, false, false, 150);
         }
 
         private void metalicBtn_Click(object sender, EventArgs e)
